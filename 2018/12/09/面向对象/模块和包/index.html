@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>27.模块和包 | Pybit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="模块和包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="27.模块和包">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/面向对象/模块和包/index.html">
+<meta property="og:site_name" content="Pybit">
+<meta property="og:description" content="模块和包">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-09T08:01:20.354Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="27.模块和包">
+<meta name="twitter:description" content="模块和包">
+  
+    <link rel="alternate" href="/atom.xml" title="Pybit" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pybit</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">热爱Python的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象/模块和包" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/面向对象/模块和包/" class="article-date">
+  <time datetime="2018-12-09T07:54:35.000Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      27.模块和包
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>模块和包</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>模块</li>
+<li>包</li>
+<li>发布模块</li>
+</ul>
+<h2 id="1-模块"><a href="#1-模块" class="headerlink" title="1. 模块"></a>1. 模块</h2><h3 id="1-1-模块的概念"><a href="#1-1-模块的概念" class="headerlink" title="1.1 模块的概念"></a>1.1 模块的概念</h3><blockquote>
+<p><strong>模块是 Python 程序架构的一个核心概念</strong></p>
+</blockquote>
+<ul>
+<li>每一个以扩展名 <strong>py</strong> 结尾的 <strong>Python</strong> 源代码文件都是一个 <strong>模块</strong></li>
+<li><strong>模块名</strong> 同样也是一个 <strong>标识符</strong>，需要符合标识符的命名规则</li>
+<li>在模块中定义的 <strong>全局变量</strong> 、<strong>函数</strong>、<strong>类</strong> 都是提供给外界直接使用的 <strong>工具</strong></li>
+<li><strong>模块</strong> 就好比是 <strong>工具包</strong>，要想使用这个工具包中的工具，就需要先 <strong>导入</strong> 这个模块</li>
+</ul>
+<h3 id="1-2-模块的两种导入方式"><a href="#1-2-模块的两种导入方式" class="headerlink" title="1.2 模块的两种导入方式"></a>1.2 模块的两种导入方式</h3><h4 id="1）import-导入"><a href="#1）import-导入" class="headerlink" title="1）import 导入"></a>1）import 导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import 模块名1, 模块名2</span><br></pre></td></tr></table></figure>
+<p><strong>提示：在导入模块时，每个导入应该独占一行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import 模块名1</span><br><span class="line">import 模块名2</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>导入之后</strong></p>
+</li>
+<li><p>通过 <strong>模块名.</strong> 使用 <strong>模块提供的工具</strong> —— <strong>全局变量</strong>、<strong>函数</strong>、<strong>类</strong></p>
+</li>
+</ul>
+<h5 id="使用-as-指定模块的别名"><a href="#使用-as-指定模块的别名" class="headerlink" title="使用 as 指定模块的别名"></a>使用 <strong>as</strong> 指定模块的别名</h5><blockquote>
+<p><strong>如果模块的名字太长</strong>，可以使用 <strong>as</strong> 指定模块的名称，以方便在代码中的使用**</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import 模块名1 as 模块别名</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong>模块别名<strong> 应该符合 </strong>大驼峰命名法**</p>
+</blockquote>
+<h4 id="2）from…import-导入"><a href="#2）from…import-导入" class="headerlink" title="2）from…import 导入"></a>2）from…import 导入</h4><ul>
+<li>如果希望 <strong>从某一个模块</strong> 中，导入 <strong>部分</strong> 工具，就可以使用 <strong>from … import</strong> 的方式</li>
+<li><strong>import 模块名</strong> 是 <strong>一次性</strong> 把模块中 <strong>所有工具全部导入</strong>，并且通过 <strong>模块名/别名</strong> 访问</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 从 模块 导入 某一个工具</span><br><span class="line">from 模块名1 import 工具名</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>导入之后</p>
+</li>
+<li><p><strong>不需要</strong> 通过 <strong>模块名.</strong></p>
+</li>
+<li>可以直接使用 <strong>模块提供的工具</strong> —— <strong>全局变量</strong>、<strong>函数</strong>、<strong>类</strong></li>
+</ul>
+<p><strong>注意</strong></p>
+<blockquote>
+<p><strong>如果 </strong>两个模块<strong>，存在 </strong>同名的函数<strong>，那么 </strong>后导入模块的函数<strong>，会 </strong>覆盖掉先导入的函数**</p>
+</blockquote>
+<ul>
+<li>开发时 <strong>import</strong> 代码应该统一写在 <strong>代码的顶部</strong>，更容易及时发现冲突</li>
+<li>一旦发现冲突，可以使用 <strong>as</strong> 关键字 <strong>给其中一个工具起一个别名</strong></li>
+</ul>
+<h5 id="from…import-（知道）"><a href="#from…import-（知道）" class="headerlink" title="from…import *（知道）"></a>from…import *（知道）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 从 模块 导入 所有工具</span><br><span class="line">from 模块名1 import *</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<blockquote>
+<p><strong>这种方式不推荐使用，因为函数重名并没有任何的提示，出现问题不好排查</strong></p>
+</blockquote>
+<h3 id="1-3-模块的搜索顺序-扩展"><a href="#1-3-模块的搜索顺序-扩展" class="headerlink" title="1.3 模块的搜索顺序[扩展]"></a>1.3 模块的搜索顺序[扩展]</h3><p><strong>Python</strong> 的解释器在 <strong>导入模块</strong> 时，会：**</p>
+<ul>
+<li>搜索 <strong>当前目录</strong> 指定模块名的文件，<strong>如果有就直接导入</strong></li>
+<li>如果没有，再搜索 <strong>系统目录</strong> </li>
+</ul>
+<blockquote>
+<p><strong>在开发时，给文件起名，不要和 </strong>系统的模块文件<strong> </strong>重名**</p>
+</blockquote>
+<p><strong>Python</strong> 中每一个模块都有一个内置属性 <strong><strong>file</strong></strong> 可以 <strong>查看模块</strong> 的 <strong>完整路径</strong></p>
+<p><strong>示例</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line"># 生成一个 0～10 的数字</span><br><span class="line">rand = random.randint(0, 10)</span><br><span class="line"></span><br><span class="line">print(rand)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：如果当前目录下，存在一个 </strong>random.py<strong> 的文件，程序就无法正常执行了！</strong></p>
+</blockquote>
+<ul>
+<li>这个时候，<strong>Python</strong> 的解释器会 <strong>加载当前目录</strong> 下的 <strong>random.py</strong> 而不会加载 <strong>系统的</strong> <strong>random</strong> 模块</li>
+</ul>
+<h3 id="1-4-原则-——-每一个文件都应该是可以被导入的"><a href="#1-4-原则-——-每一个文件都应该是可以被导入的" class="headerlink" title="1.4 原则 —— 每一个文件都应该是可以被导入的"></a>1.4 原则 —— 每一个文件都应该是可以被导入的</h3><ul>
+<li>一个 <strong>独立的 </strong>Python<strong> 文件</strong> 就是一个 <strong>模块</strong></li>
+<li>在导入文件时，文件中 <strong>所有没有任何缩进的代码</strong> 都会被执行一遍！</li>
+</ul>
+<p><strong>实际开发场景</strong></p>
+<ul>
+<li>在实际开发中，每一个模块都是独立开发的，大多都有专人负责</li>
+<li><p><strong>开发人员</strong> 通常会在 <strong>模块下方</strong> <strong>增加一些测试代码</strong></p>
+</li>
+<li><p>仅在模块内使用，而被导入到其他文件中不需要执行</p>
+</li>
+</ul>
+<h4 id="name-属性"><a href="#name-属性" class="headerlink" title="name 属性"></a><strong><strong>name</strong></strong> 属性</h4><blockquote>
+<ul>
+<li><strong><strong>name</strong></strong> 属性可以做到，测试模块的代码 <strong>只在测试情况下被运行</strong>，而在 <strong>被导入时不会被执行</strong>！</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong><strong>name</strong></strong> 是 <strong>Python</strong> 的一个内置属性，记录着一个 <strong>字符串</strong></li>
+<li>如果 <strong>是被其他文件导入的</strong>，<strong><strong>name</strong></strong> 就是 <strong>模块名</strong></li>
+<li>如果 <strong>是当前执行的程序</strong> <strong><strong>name</strong></strong> 是 <strong><strong>main</strong></strong></li>
+</ul>
+<p><strong>在很多 </strong>Python<strong> 文件中都会看到以下格式的代码</strong>：**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 导入模块</span><br><span class="line"># 定义全局变量</span><br><span class="line"># 定义类</span><br><span class="line"># 定义函数</span><br><span class="line"></span><br><span class="line"># 在代码的最下方</span><br><span class="line">def main():</span><br><span class="line">    # ...</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"># 根据 __name__ 判断是否执行下方代码</span><br><span class="line">if __name__ == &amp;quot;__main__&amp;quot;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h2 id="2-包（Package）"><a href="#2-包（Package）" class="headerlink" title="2. 包（Package）"></a>2. 包（Package）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><strong>包</strong> 是一个 <strong>包含多个模块</strong> 的 <strong>特殊目录</strong></li>
+<li>目录下有一个 <strong>特殊的文件</strong> <strong><strong>init</strong>.py</strong></li>
+<li>包名的 <strong>命名方式</strong> 和变量名一致，<strong>小写字母</strong> + <strong>_</strong></li>
+</ul>
+<p><strong>好处</strong></p>
+<ul>
+<li>使用 <strong>import 包名</strong> 可以一次性导入 <strong>包</strong> 中 <strong>所有的模块</strong></li>
+</ul>
+<h3 id="gt-案例演练"><a href="#gt-案例演练" class="headerlink" title="&gt;案例演练"></a>&gt;案例演练</h3><ol>
+<li>新建一个 <strong>hm_message</strong> 的 <strong>包</strong></li>
+<li>在目录下，新建两个文件 <strong>send_message</strong> 和 <strong>receive_message</strong></li>
+<li>在 <strong>send_message</strong> 文件中定义一个 <strong>send</strong> 函数</li>
+<li>在 <strong>receive_message</strong> 文件中定义一个 <strong>receive</strong> 函数</li>
+<li>在外部直接导入 <strong>hm_message</strong> 的包</li>
+</ol>
+<h3 id="init-py"><a href="#init-py" class="headerlink" title="init.py"></a><strong><strong>init</strong>.py</strong></h3><ul>
+<li>要在外界使用 <strong>包</strong> 中的模块，需要在 <strong><strong>init</strong>.py</strong> 中指定 <strong>对外界提供的模块列表</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 从 当前目录 导入 模块列表</span><br><span class="line">from . import send_message</span><br><span class="line">from . import receive_message</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-发布模块（知道）"><a href="#3-发布模块（知道）" class="headerlink" title="3. 发布模块（知道）"></a>3. 发布模块（知道）</h2><ul>
+<li>如果希望自己开发的模块，<strong>分享</strong> 给其他人，可以按照以下步骤操作</li>
+</ul>
+<h3 id="3-1-制作发布压缩包步骤"><a href="#3-1-制作发布压缩包步骤" class="headerlink" title="3.1 制作发布压缩包步骤"></a>3.1 制作发布压缩包步骤</h3><h4 id="1-创建-setup-py"><a href="#1-创建-setup-py" class="headerlink" title="1) 创建 setup.py"></a>1) 创建 setup.py</h4><ul>
+<li><strong>setup.py</strong> 的文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from distutils.core import setup</span><br><span class="line"></span><br><span class="line">setup(name=&amp;quot;hm_message&amp;quot;,  # 包名</span><br><span class="line">      version=&amp;quot;1.0&amp;quot;,  # 版本</span><br><span class="line">      description=&amp;quot;itheima&amp;#39;s 发送和接收消息模块&amp;quot;,  # 描述信息</span><br><span class="line">      long_description=&amp;quot;完整的发送和接收消息模块&amp;quot;,  # 完整描述信息</span><br><span class="line">      author=&amp;quot;itheima&amp;quot;,  # 作者</span><br><span class="line">      author_email=&amp;quot;itheima@itheima.com&amp;quot;,  # 作者邮箱</span><br><span class="line">      url=&amp;quot;www.itheima.com&amp;quot;,  # 主页</span><br><span class="line">      py_modules=[&amp;quot;hm_message.send_message&amp;quot;,</span><br><span class="line">                  &amp;quot;hm_message.receive_message&amp;quot;])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>有关字典参数的详细信息，可以参阅官方网站：</strong><br><strong><a href="https://docs.python.org/2/distutils/apiref.html" target="_blank" rel="noopener">https://docs.python.org/2/distutils/apiref.html</a></strong></p>
+<h4 id="2-构建模块"><a href="#2-构建模块" class="headerlink" title="2) 构建模块"></a>2) 构建模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 setup.py build</span><br></pre></td></tr></table></figure>
+<h4 id="3-生成发布压缩包"><a href="#3-生成发布压缩包" class="headerlink" title="3) 生成发布压缩包"></a>3) 生成发布压缩包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python3 setup.py sdist</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：要制作哪个版本的模块，就使用哪个版本的解释器执行！</strong></p>
+</blockquote>
+<h3 id="3-2-安装模块"><a href="#3-2-安装模块" class="headerlink" title="3.2 安装模块"></a>3.2 安装模块</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf hm_message-1.0.tar.gz </span><br><span class="line"></span><br><span class="line">$ sudo python3 setup.py install</span><br></pre></td></tr></table></figure>
+<p><strong>卸载模块</strong></p>
+<p><strong>直接从安装目录下，把安装模块的 </strong>目录<strong> 删除就可以</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/local/lib/python3.5/dist-packages/</span><br><span class="line">$ sudo rm -r hm_message*</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-3-pip-安装第三方模块"><a href="#3-3-pip-安装第三方模块" class="headerlink" title="3.3 pip 安装第三方模块"></a>3.3 <strong>pip</strong> 安装第三方模块</h3><ul>
+<li><p><strong>第三方模块</strong> 通常是指由 <strong>知名的第三方团队</strong> <strong>开发的</strong> 并且被 <strong>程序员广泛使用</strong> 的 <strong>Python</strong> 包 / 模块</p>
+<ul>
+<li>例如 <strong>pygame</strong> 就是一套非常成熟的 <strong>游戏开发模块</strong></li>
+</ul>
+</li>
+<li><p><strong>pip</strong> 是一个现代的，通用的 <strong>Python</strong> 包管理工具</p>
+</li>
+<li>提供了对 <strong>Python</strong> 包的查找、下载、安装、卸载等功能</li>
+</ul>
+<p><strong>安装和卸载命令如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 将模块安装到 Python 2.x 环境</span><br><span class="line">$ sudo pip install pygame</span><br><span class="line">$ sudo pip uninstall pygame</span><br><span class="line"></span><br><span class="line"># 将模块安装到 Python 3.x 环境</span><br><span class="line">$ sudo pip3 install pygame</span><br><span class="line">$ sudo pip3 uninstall pygame</span><br></pre></td></tr></table></figure></p>
+<h4 id="在-Mac-下安装-iPython"><a href="#在-Mac-下安装-iPython" class="headerlink" title="在 Mac 下安装 iPython"></a>在 <strong>Mac</strong> 下安装 <strong>iPython</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install ipython</span><br></pre></td></tr></table></figure>
+<h4 id="在-Linux-下安装-iPython"><a href="#在-Linux-下安装-iPython" class="headerlink" title="在 Linux 下安装 iPython"></a>在 <strong>Linux</strong> 下安装 <strong>iPython</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ipython</span><br><span class="line">$ sudo apt install ipython3</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/面向对象/模块和包/" data-id="cjpgmo2pf002j78aerxx29yqk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/09/面向对象/文件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          28.文件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/09/面向对象/异常/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">26.异常</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/集成开发环境/">集成开发环境</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pycharm/">Pycharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python基础班课件/">黑马Python基础班课件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pycharm/" style="font-size: 10px;">Pycharm</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/黑马Python基础班课件/" style="font-size: 20px;">黑马Python基础班课件</a> <a href="/tags/黑马Python面向对象/" style="font-size: 16.67px;">黑马Python面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/eval函数/">29.eval函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/文件/">28.文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/模块和包/">27.模块和包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/异常/">26.异常</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/单例/">25.单例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Pybit<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

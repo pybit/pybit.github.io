@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>20.面向对象封装案例2 | Pybit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象封装案例 II">
+<meta name="keywords" content="黑马Python面向对象,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20.面向对象封装案例2">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/面向对象/面向对象封装案例2/index.html">
+<meta property="og:site_name" content="Pybit">
+<meta property="og:description" content="面向对象封装案例 II">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/面向对象封装案例2/1.png">
+<meta property="og:updated_time" content="2018-12-09T01:34:17.949Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20.面向对象封装案例2">
+<meta name="twitter:description" content="面向对象封装案例 II">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/09/面向对象/面向对象封装案例2/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Pybit" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pybit</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">热爱Python的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象/面向对象封装案例2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/面向对象/面向对象封装案例2/" class="article-date">
+  <time datetime="2018-12-09T01:18:24.000Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      20.面向对象封装案例2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>面向对象封装案例 II</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>士兵突击案例</li>
+<li>身份运算符<br><strong>封装</strong></li>
+</ul>
+<ol>
+<li><strong>封装</strong> 是面向对象编程的一大特点</li>
+<li>面向对象编程的 <strong>第一步</strong> —— 将 <strong>属性</strong> 和 <strong>方法</strong> 封装 到一个抽象的 <strong>类</strong> 中</li>
+<li><strong>外界</strong> 使用 <strong>类</strong> 创建 <strong>对象</strong>，然后 <strong>让对象调用方法</strong></li>
+<li><strong>对象方法的细节</strong> 都被 <strong>封装</strong> 在 <strong>类的内部</strong><blockquote>
+<p>一个对象的 <strong>属性</strong> 可以是 <strong>另外一个类创建的对象</strong></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="1-士兵突击"><a href="#1-士兵突击" class="headerlink" title="1. 士兵突击"></a>1. 士兵突击</h2><p><strong>需求</strong></p>
+<ol>
+<li><strong>士兵 许三多</strong> 有一把 <strong>AK47</strong></li>
+<li><strong>士兵 </strong>可以 <strong>开火</strong></li>
+<li><strong>枪 </strong>能够 <strong>发射</strong> 子弹</li>
+<li><strong>枪</strong> 装填 <strong>装填子弹</strong> —— <strong>增加子弹数量</strong><br><img src="/2018/12/09/面向对象/面向对象封装案例2/1.png" alt=""></li>
+</ol>
+<h3 id="1-1-开发枪类"><a href="#1-1-开发枪类" class="headerlink" title="1.1 开发枪类"></a>1.1 开发枪类</h3><p><strong>shoot 方法需求</strong></p>
+<ul>
+<li>1&gt; 判断是否有子弹，没有子弹无法射击</li>
+<li>2&gt; 使用 print 提示射击，并且输出子弹数量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class Gun:</span><br><span class="line"></span><br><span class="line">    def __init__(self, model):</span><br><span class="line"></span><br><span class="line">        # 枪的型号</span><br><span class="line">        self.model = model</span><br><span class="line">        # 子弹数量</span><br><span class="line">        self.bullet_count = 0</span><br><span class="line"></span><br><span class="line">    def add_bullet(self, count):</span><br><span class="line"></span><br><span class="line">        self.bullet_count += count</span><br><span class="line"></span><br><span class="line">    def shoot(self):</span><br><span class="line"></span><br><span class="line">        # 判断是否还有子弹</span><br><span class="line">        if self.bullet_count &lt;= 0:</span><br><span class="line">            print(&quot;没有子弹了...&quot;)</span><br><span class="line"></span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        # 发射一颗子弹</span><br><span class="line">        self.bullet_count -= 1</span><br><span class="line">        </span><br><span class="line">        print(&quot;%s 发射子弹[%d]...&quot; % (self.model, self.bullet_count))</span><br><span class="line"></span><br><span class="line"># 创建枪对象</span><br><span class="line">ak47 = Gun(&quot;ak47&quot;)</span><br><span class="line">ak47.add_bullet(50)</span><br><span class="line">ak47.shoot()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-2-开发士兵类"><a href="#1-2-开发士兵类" class="headerlink" title="1.2 开发士兵类"></a>1.2 开发士兵类</h3><blockquote>
+<p>假设：每一个新兵 都 <strong>没有枪</strong></p>
+</blockquote>
+<p><strong>定义没有初始值的属性</strong></p>
+<p>在定义属性时，如果 <strong>不知道设置什么初始值</strong>，可以设置为 None</p>
+<ul>
+<li><strong>None 关键字</strong> 表示 什么都没有</li>
+<li>表示一个 <strong>空对象，没有方法和属性，是一个特殊的常量</strong></li>
+<li><p>可以将 None 赋值给任何一个变量<br><strong>fire 方法需求</strong></p>
+</li>
+<li><p>1&gt; 判断是否有枪，没有枪没法冲锋</p>
+</li>
+<li>2&gt; 喊一声口号</li>
+<li>3&gt; 装填子弹</li>
+<li>4&gt; 射击<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Soldier:</span><br><span class="line"></span><br><span class="line">    def __init__(self, name):</span><br><span class="line"></span><br><span class="line">        # 姓名</span><br><span class="line">        self.name = name</span><br><span class="line">        # 枪，士兵初始没有枪 None 关键字表示什么都没有</span><br><span class="line">        self.gun = None</span><br><span class="line"></span><br><span class="line">    def fire(self):</span><br><span class="line"></span><br><span class="line">        # 1. 判断士兵是否有枪</span><br><span class="line">        if self.gun is None:</span><br><span class="line">            print(&quot;[%s] 还没有枪...&quot; % self.name)</span><br><span class="line"></span><br><span class="line">            return</span><br><span class="line"></span><br><span class="line">        # 2. 高喊口号</span><br><span class="line">        print(&quot;冲啊...[%s]&quot; % self.name)</span><br><span class="line"></span><br><span class="line">        # 3. 让枪装填子弹</span><br><span class="line">        self.gun.add_bullet(50)</span><br><span class="line"></span><br><span class="line">        # 4. 让枪发射子弹</span><br><span class="line">        self.gun.shoot()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>小结</strong></p>
+<ol>
+<li>创建了一个 <strong>士兵类</strong>，使用到 <strong>init</strong> 内置方法</li>
+<li>在定义属性时，如果 <strong>不知道设置什么初始值</strong>，可以设置为 None</li>
+<li>在 <strong>封装的</strong> 方法内部，还可以让 <strong>自己的 使用其他类创建的对象属性</strong>调用已经 <strong>封装好的方法</strong></li>
+</ol>
+<h2 id="2-身份运算符"><a href="#2-身份运算符" class="headerlink" title="2. 身份运算符"></a>2. 身份运算符</h2><p>身份运算符用于 <strong>比较</strong> 两个对象的 <strong>内存地址</strong> 是否一致 —— <strong>是否是对同一个对象的引用</strong></p>
+<ul>
+<li>在 Python 中针对 None 比较时，建议使用 is 判断<br>| 运算符 | 描述 | 实例 |<br>|:–:|:–:|:–:|<br>| is | is 是判断两个标识符是不是引用同一个对象 | x is y，类似 id(x) == id(y)|<br>| is not | is not 是判断两个标识符是不是引用不同对象 | x is not y，类似 id(a) != id(b)|<br><strong>is 与 == 区别：</strong><br>is用于判断 <strong>两个变量 引用对象是否为同一个 </strong><br>== 用于判断 <strong>引用变量的值</strong> 是否相等<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; b = [1, 2, 3]</span><br><span class="line">&gt;&gt;&gt; b is a </span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt; b == a</span><br><span class="line">True</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/面向对象/面向对象封装案例2/" data-id="cjpgmo2q6002v78aeaiml3bol" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/09/面向对象/私有属性和私有方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          21.私有属性和私有方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/09/面向对象/面向对象封装案例/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">19.面向对象封装案例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/集成开发环境/">集成开发环境</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pycharm/">Pycharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python基础班课件/">黑马Python基础班课件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pycharm/" style="font-size: 10px;">Pycharm</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/黑马Python基础班课件/" style="font-size: 20px;">黑马Python基础班课件</a> <a href="/tags/黑马Python面向对象/" style="font-size: 16.67px;">黑马Python面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/eval函数/">29.eval函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/文件/">28.文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/模块和包/">27.模块和包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/异常/">26.异常</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/单例/">25.单例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Pybit<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

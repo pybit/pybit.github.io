@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>22.继承 | Pybit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继承">
+<meta name="keywords" content="黑马Python面向对象,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22.继承">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/面向对象/继承/index.html">
+<meta property="og:site_name" content="Pybit">
+<meta property="og:description" content="继承">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/继承/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/继承/2.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/继承/3.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/继承/4.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/继承/5.png">
+<meta property="og:updated_time" content="2018-12-09T02:03:13.410Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="22.继承">
+<meta name="twitter:description" content="继承">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/09/面向对象/继承/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Pybit" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pybit</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">热爱Python的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象/继承" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/面向对象/继承/" class="article-date">
+  <time datetime="2018-12-09T01:43:47.000Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      22.继承
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>继承</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>单继承</li>
+<li>多继承<br><strong>面向对象三大特性</strong></li>
+</ul>
+<ol>
+<li><strong>封装</strong> 根据 <strong>职责</strong> 将 <strong>属性</strong> 和 <strong>方法</strong> <strong>封装</strong> 到一个抽象的 <strong>类</strong> 中</li>
+<li><strong>继承 实现代码的重用</strong>，相同的代码不需要重复的编写</li>
+<li><strong>多态</strong> 不同的对象调用相同的方法，产生不同的执行结果，<strong>增加代码的灵活度</strong></li>
+</ol>
+<h2 id="1-单继承"><a href="#1-单继承" class="headerlink" title="1. 单继承"></a>1. 单继承</h2><h3 id="1-1-继承的概念、语法和特点"><a href="#1-1-继承的概念、语法和特点" class="headerlink" title="1.1 继承的概念、语法和特点"></a>1.1 继承的概念、语法和特点</h3><p><strong>继承的概念</strong>：<strong>子类</strong> 拥有 <strong>父类</strong> 的所有 <strong>方法</strong> 和 <strong>属性</strong><br><img src="/2018/12/09/面向对象/继承/1.png" alt=""></p>
+<h4 id="1-继承的语法"><a href="#1-继承的语法" class="headerlink" title="1) 继承的语法"></a>1) 继承的语法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class 类名(父类名):</span><br><span class="line"></span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>子类</strong> 继承自 <strong>父类</strong>，可以直接 <strong>享受</strong> 父类中已经封装好的方法，不需要再次开发</li>
+<li><strong>子类</strong> 中应该根据 <strong>职责</strong>，封装 <strong>子类特有的 属性和方法</strong><h4 id="2-专业术语"><a href="#2-专业术语" class="headerlink" title="2) 专业术语"></a>2) 专业术语</h4></li>
+<li>Dog 类是 Animal 类的<strong>子类</strong>，Animal 类是 Dog 类的<strong>父类</strong>，Dog 类从 Animal 类<strong>继承</strong></li>
+<li>Dog 类是 Animal 类的<strong>派生类</strong>，Animal 类是 Dog 类的<strong>基类</strong>，Dog 类从 Animal 类<strong>派</strong>生<h4 id="3-继承的传递性"><a href="#3-继承的传递性" class="headerlink" title="3) 继承的传递性"></a>3) 继承的传递性</h4></li>
+<li>C 类从 B 类继承，B 类又从 A 类继承</li>
+<li>那么 C 类就具有 B 类和 A 类的所有属性和方法<br><strong>子类</strong> 拥有 <strong>父类</strong> 以及 <strong>父类的父类</strong> 中封装的所有 <strong>属性</strong> 和 <strong>方法</strong></li>
+</ul>
+<p><strong>提问</strong></p>
+<p><strong>哮天犬</strong> 能够调用 Cat 类中定义的 catch 方法吗？</p>
+<p><strong>答案</strong></p>
+<p><strong>不能</strong>，因为 <strong>哮天犬</strong> 和 Cat 之间没有 <strong>继承</strong> 关系</p>
+<h3 id="1-2-方法的重写"><a href="#1-2-方法的重写" class="headerlink" title="1.2 方法的重写"></a>1.2 方法的重写</h3><ul>
+<li><strong>子类</strong> 拥有 <strong>父类</strong> 的所有 <strong>方法</strong> 和 <strong>属性</strong></li>
+<li><p><strong>子类</strong> 继承自 <strong>父类</strong>，可以直接 <strong>享受</strong> 父类中已经封装好的方法，不需要再次开发<br><strong>应用场景</strong></p>
+</li>
+<li><p>当 <strong>父类</strong> 的方法实现不能满足子类需求时，可以对方法进行 <strong>重写(override)</strong><br><img src="/2018/12/09/面向对象/继承/2.png" alt=""></p>
+</li>
+</ul>
+<p><strong>重写</strong> 父类方法有两种情况：</p>
+<ol>
+<li><strong>覆盖</strong> 父类的方法</li>
+<li>对父类方法进行 <strong>扩展</strong><h4 id="1-覆盖父类的方法"><a href="#1-覆盖父类的方法" class="headerlink" title="1) 覆盖父类的方法"></a>1) 覆盖父类的方法</h4></li>
+</ol>
+<ul>
+<li>如果在开发中，<strong>父类的方法实现</strong> 和 <strong>子类的方法实现，完全不同</strong></li>
+<li>就可以使用 <strong>覆盖</strong> 的方式，<strong>在子类中 重新编写</strong> 父类的方法实现<blockquote>
+<p>具体的实现方式，就相当于在 <strong>子类中</strong> 定义了一个 <strong>和父类同名的方法并且实现</strong></p>
+</blockquote>
+</li>
+</ul>
+<p>重写之后，在运行时，<strong>只会调用 </strong>子类中重写的方法，而不再会调用 <strong>父类封装的方法</strong></p>
+<h4 id="2-对父类方法进行-扩展"><a href="#2-对父类方法进行-扩展" class="headerlink" title="2) 对父类方法进行 扩展"></a>2) 对父类方法进行 扩展</h4><ul>
+<li>如果在开发中，<strong>子类的方法实现</strong> 中 <strong>包含 父类的方法实现</strong><ul>
+<li><strong>父类原本封装的方法实现</strong> 是 <strong>子类方法的一部分</strong></li>
+</ul>
+</li>
+<li>就可以使用 <strong>扩展</strong> 的方式<ol>
+<li><strong>在子类中 重写</strong> 父类的方法</li>
+<li>在需要的位置使用 <strong>super().父类方法</strong> 来调用父类方法的执行</li>
+<li>代码其他的位置针对子类的需求，编写 <strong>子类特有的代码实现</strong><br><strong>关于 super</strong></li>
+</ol>
+</li>
+<li>在 Python 中 <strong>super </strong>是一个 <strong>特殊的类</strong></li>
+<li><strong>super() </strong>就是使用<strong> super 类</strong>创建出来的对象</li>
+<li>最常 使用的场景就是在<strong> 重写父类方法时</strong>，调用 <strong>在父类中封装的方法实现</strong><br><strong>调用父类方法的另外一种方式（知道）</strong><blockquote>
+<p>在 Python 2.x 时，如果需要调用父类的方法，还可以使用以下方式：</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父类名.方法(self)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这种方式，目前在 Python 3.x 还支持这种方式</li>
+<li><p>这种方法 <strong>不推荐使用</strong>，因为一旦 <strong>父类发生变化</strong>，方法调用位置的 <strong>类名</strong> 同样需要修改<br><strong>提示</strong></p>
+</li>
+<li><p>在开发时，<strong>父类名</strong> 和 <strong>super()</strong> 两种方式不要混用</p>
+</li>
+<li>如果使用 <strong>当前子类名</strong> 调用方法，会形成递归调用，<strong>出现死循环</strong></li>
+</ul>
+<h3 id="1-3-父类的-私有属性-和-私有方法"><a href="#1-3-父类的-私有属性-和-私有方法" class="headerlink" title="1.3 父类的 私有属性 和 私有方法"></a>1.3 父类的 私有属性 和 私有方法</h3><ol>
+<li><strong>子类对象 不能</strong> 在自己的方法内部，<strong>直接</strong> 访问 父类的 <strong>私有属性</strong> 或 <strong>私有方法</strong></li>
+<li><strong>子类对象</strong> 可以通过 <strong>父类</strong> 的 <strong>公有方法 间接</strong> 访问到 <strong>私有属性</strong> 或 <strong>私有方法</strong><blockquote>
+<ul>
+<li><strong>私有属性、方法 </strong>是对象的隐私，不对外公开，<strong>外界</strong> 以及 <strong>子类 </strong>都不能直接访问</li>
+<li><strong>私有属性、方法</strong> 通常用于做一些内部的事情</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>示例</strong><br><img src="/2018/12/09/面向对象/继承/3.png" alt=""></p>
+<ul>
+<li>B 的对象不能直接访问 __num2 属性</li>
+<li>B 的对象不能在 demo 方法内访问 __num2 属性</li>
+<li>B 的对象可以在 demo 方法内，调用父类的 test 方法</li>
+<li>父类的 test 方法内部，能够访问 <strong>num2 属性和 </strong>test 方法</li>
+</ul>
+<h2 id="2-多继承"><a href="#2-多继承" class="headerlink" title="2. 多继承"></a>2. 多继承</h2><p><strong>概念</strong></p>
+<ul>
+<li><strong>子类</strong> 可以拥有 <strong>多个父类</strong>，并且具有 <strong>所有父类</strong> 的 <strong>属性</strong> 和 <strong>方法</strong></li>
+<li>例如：<strong>孩子</strong> 会继承自己 <strong>父亲</strong> 和 <strong>母亲</strong> 的 <strong>特性</strong><br><img src="/2018/12/09/面向对象/继承/4.png" alt=""><br><strong>语法</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class 子类名(父类名1, 父类名2...)</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-1-多继承的使用注意事项"><a href="#2-1-多继承的使用注意事项" class="headerlink" title="2.1 多继承的使用注意事项"></a>2.1 多继承的使用注意事项</h3><p><strong>问题的提出</strong></p>
+<ol>
+<li>如果 <strong>不同的父类</strong> 中存在 <strong>同名的方法</strong>，<strong>子类对象</strong> 在调用方法时，会调用 <strong>哪一个父类中</strong>的方法呢？<blockquote>
+<p>提示：<strong>开发时，应该尽量避免这种容易产生混淆的情况！</strong> —— 如果 <strong>父类之间</strong> 存在 <strong>同名的属性或者方法</strong>，应该 <strong>尽量避免</strong> 使用多继承</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/2018/12/09/面向对象/继承/5.png" alt=""><br><strong>Python 中的 MRO —— 方法搜索顺序（知道）</strong></p>
+<ul>
+<li>Python 中针对 <strong>类</strong> 提供了一个 <strong>内置属性 <strong>mro</strong> </strong>可以查看 <strong>方法</strong> 搜索顺序</li>
+<li>MRO 是 method resolution order，主要用于 <strong>在多继承时判断 方法、属性 的调用 路径</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(C.__mro__)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>输出结果</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&lt;class &apos;__main__.C&apos;&gt;, &lt;class &apos;__main__.A&apos;&gt;, &lt;class &apos;__main__.B&apos;&gt;, &lt;class &apos;object&apos;&gt;)</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>在搜索方法时，是按照 <strong>mro</strong> 的输出结果 <strong>从左至右</strong> 的顺序查找的</li>
+<li>如果在当前类中 <strong>找到方法，就直接执行，不再搜索</strong></li>
+<li>如果 <strong>没有找到，就查找下一个类</strong> 中是否有对应的方法，<strong>如果找到，就直接执行，不再搜索</strong></li>
+<li><p>如果找到最后一个类，还没有找到方法，程序报错</p>
+<h3 id="2-2-新式类与旧式（经典）类"><a href="#2-2-新式类与旧式（经典）类" class="headerlink" title="2.2 新式类与旧式（经典）类"></a>2.2 新式类与旧式（经典）类</h3><blockquote>
+<p>object 是 Python 为所有对象提供的 <strong>基类</strong>，提供有一些内置的属性和方法，可以使用 dir 函数查看</p>
+</blockquote>
+</li>
+<li><p><strong>新式类</strong>：以 object 为基类的类，<strong>推荐使用</strong></p>
+</li>
+<li><p><strong>经典类</strong>：不以 object 为基类的类，<strong>不推荐使用</strong></p>
+</li>
+<li><p>在 Python 3.x 中定义类时，如果没有指定父类，会 <strong>默认使用 object </strong>作为该类的 <strong>基类 </strong>—— Python 3.x 中定义的类都是 <strong>新式类</strong></p>
+</li>
+<li><p>在 Python 2.x 中定义类时，如果没有指定父类，则不会以 object 作为 <strong>基类</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>新式类</strong> 和<strong>经典类</strong> 在多继承时 —— <strong>会影响到方法的搜索顺序</strong></p>
+</blockquote>
+<p>为了保证编写的代码能够同时在 Python 2.x 和 Python 3.x 运行！<br>今后在定义类时，*如果没有父类，建议统一继承自 object**<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">class 类名(object):</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/面向对象/继承/" data-id="cjpgmo2ps002q78ae7jbzurpv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/09/面向对象/多态/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          23.多态
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/09/面向对象/私有属性和私有方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">21.私有属性和私有方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/集成开发环境/">集成开发环境</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pycharm/">Pycharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python基础班课件/">黑马Python基础班课件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pycharm/" style="font-size: 10px;">Pycharm</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/黑马Python基础班课件/" style="font-size: 20px;">黑马Python基础班课件</a> <a href="/tags/黑马Python面向对象/" style="font-size: 16.67px;">黑马Python面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/eval函数/">29.eval函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/文件/">28.文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/模块和包/">27.模块和包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/异常/">26.异常</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/单例/">25.单例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Pybit<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

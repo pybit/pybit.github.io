@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>18.面向对象基础语法 | Pybit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象基础语法">
+<meta name="keywords" content="黑马Python面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18.面向对象基础语法">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/面向对象/面向对象基础语法/index.html">
+<meta property="og:site_name" content="Pybit">
+<meta property="og:description" content="面向对象基础语法">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/08/面向对象/面向对象基础语法/004_Cat类1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/08/面向对象/面向对象基础语法/005_方法中的self.png">
+<meta property="og:updated_time" content="2018-12-08T10:02:48.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="18.面向对象基础语法">
+<meta name="twitter:description" content="面向对象基础语法">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/08/面向对象/面向对象基础语法/004_Cat类1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Pybit" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pybit</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">热爱Python的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象/面向对象基础语法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/08/面向对象/面向对象基础语法/" class="article-date">
+  <time datetime="2018-12-08T09:34:00.000Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      18.面向对象基础语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>面向对象基础语法</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>dir内置函数</li>
+<li>定义简单的类（只包含方法）</li>
+<li>方法中的 self 参数</li>
+<li>初始化方法</li>
+<li>内置方法和属性</li>
+</ul>
+<h2 id="1-dir-内置函数-知道"><a href="#1-dir-内置函数-知道" class="headerlink" title="1. dir 内置函数(知道)"></a>1. dir 内置函数(知道)</h2><ul>
+<li>在 Python 中 对象几乎是无所不在的，我们之前学习的 变量、数据、函数 都是对象</li>
+<li>在 Python 中可以使用以下两个方法验证：</li>
+</ul>
+<ol>
+<li>在 标识符 / 数据 后输入一个 .，然后按下 TAB 键，iPython 会提示该对象能够调用的 方法列表</li>
+<li>使用内置函数 dir 传入 标识符 / 数据，可以查看对象内的 所有属性及方法<br><strong>提示</strong>  <strong>方法名</strong>  格式的方法是 Python 提供的 内置方法 / 属性，稍后会给大家介绍一些常用的 内置方法 / 属性</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">01</td>
+<td style="text-align:center">__new__</td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">创建对象时，会被 自动 调用</td>
+</tr>
+<tr>
+<td style="text-align:center">02</td>
+<td style="text-align:center">__init__</td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">对象被初始化时，会被 自动 调用</td>
+</tr>
+<tr>
+<td style="text-align:center">03</td>
+<td style="text-align:center">__del__</td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">对象被从内存中销毁前，会被 自动 调用</td>
+</tr>
+<tr>
+<td style="text-align:center">04</td>
+<td style="text-align:center">__str__</td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">返回对象的描述信息，print 函数输出使用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>提示</strong> 利用好 dir() 函数，在学习时很多内容就不需要死记硬背了</p>
+<h2 id="2-定义简单的类（只包含方法）"><a href="#2-定义简单的类（只包含方法）" class="headerlink" title="2. 定义简单的类（只包含方法）"></a>2. 定义简单的类（只包含方法）</h2><blockquote>
+<p><strong>面向对象</strong> 是 <strong>更大</strong> 的 <strong>封装</strong>，在 <strong>一个类中 封装 多个方法</strong>，这样 <strong>通过这个类创建出来的对象，就可以直接调用这些方法了</strong>！</p>
+</blockquote>
+<h3 id="2-1-定义只包含方法的类"><a href="#2-1-定义只包含方法的类" class="headerlink" title="2.1 定义只包含方法的类"></a>2.1 定义只包含方法的类</h3><ul>
+<li><p>在 Python 中要定义一个只包含方法的类，语法格式如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法1<span class="params">(self, 参数列表)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法2<span class="params">(self, 参数列表)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法 的定义格式和之前学习过的函数 几乎一样</p>
+</li>
+<li>区别在于第一个参数必须是 self，大家暂时先记住，稍后介绍 self<blockquote>
+<p>注意：类名 的 命名规则 要符合 大驼峰命名法</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-2-创建对象"><a href="#2-2-创建对象" class="headerlink" title="2.2 创建对象"></a>2.2 创建对象</h3><ul>
+<li>当一个类定义完成之后，要使用这个类来创建对象，语法格式如下：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象变量 = 类名()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-3-第一个面向对象程序"><a href="#2-3-第一个面向对象程序" class="headerlink" title="2.3 第一个面向对象程序"></a>2.3 第一个面向对象程序</h3><p><strong>需求</strong></p>
+<ul>
+<li>小猫 爱 吃 鱼，小猫 要 喝 水<br><strong>分析</strong></li>
+</ul>
+<ol>
+<li>定义一个猫类 Cat</li>
+<li>定义两个方法 eat 和 drink</li>
+<li>按照需求 —— 不需要定义属性<br><img src="/2018/12/08/面向对象/面向对象基础语法/004_Cat类1.png" alt="Cat"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    <span class="string">"""这是一个猫类"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"小猫爱吃鱼"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"小猫在喝水"</span>)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>引用概念的强调</strong></p>
+<blockquote>
+<p>在面向对象开发中，引用的概念是同样适用的！</p>
+</blockquote>
+<ul>
+<li>在 Python 中使用类 创建对象之后，tom 变量中 仍然记录的是 对象在内存中的地址</li>
+<li>也就是 tom 变量 引用 了 新建的猫对象</li>
+<li>使用 print 输出 对象变量，默认情况下，是能够输出这个变量 引用的对象 是 由哪一个类创建的对象，以及 在内存中的地址（十六进制表示）<blockquote>
+<p>提示：在计算机中，通常使用 十六进制 表示 内存地址</p>
+</blockquote>
+</li>
+<li>十进制 和 十六进制 都是用来表达数字的，只是表示的方式不一样</li>
+<li><p>十进制 和 十六进制 的数字之间可以来回转换</p>
+</li>
+<li><p>%d 可以以 10 进制 输出数字</p>
+</li>
+<li>%x 可以以 16 进制 输出数字</li>
+</ul>
+<p>案例进阶 —— 使用 Cat 类再创建一个对象<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.eat()</span><br><span class="line">lazy_cat.drink()</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>提问：tom 和 lazy_cat 是同一个对象吗？</p>
+</blockquote>
+<h2 id="3-方法中的-self-参数"><a href="#3-方法中的-self-参数" class="headerlink" title="3. 方法中的 self 参数"></a>3. 方法中的 self 参数</h2><h3 id="3-1-案例改造-——-给对象增加属性"><a href="#3-1-案例改造-——-给对象增加属性" class="headerlink" title="3.1 案例改造 —— 给对象增加属性"></a>3.1 案例改造 —— 给对象增加属性</h3><ul>
+<li>在 Python 中，要 给对象设置属性，非常的容易，但是不推荐使用<ul>
+<li>因为：对象属性的封装应该封装在类的内部</li>
+</ul>
+</li>
+<li>只需要在 类的外部的代码 中直接通过 . 设置一个属性即可<blockquote>
+<p>注意：这种方式虽然简单，但是不推荐使用！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tom.name = &quot;Tom&quot;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat.name = &quot;大懒猫&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-2-使用-self-在方法内部输出每一只猫的名字"><a href="#3-2-使用-self-在方法内部输出每一只猫的名字" class="headerlink" title="3.2 使用 self 在方法内部输出每一只猫的名字"></a>3.2 使用 self 在方法内部输出每一只猫的名字</h3><blockquote>
+<p>由 哪一个对象 调用的方法，方法内的 self 就是 哪一个对象的引用</p>
+</blockquote>
+<ul>
+<li>在类封装的方法内部，self 就表示 当前调用方法的对象自己</li>
+<li>调用方法时，程序员不需要传递 self 参数</li>
+<li>在方法内部<ul>
+<li>可以通过 self. 访问对象的属性</li>
+<li>也可以通过 self. 调用其他的对象方法</li>
+</ul>
+</li>
+<li>改造代码如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line"></span><br><span class="line">    def eat(self):</span><br><span class="line">        print(&quot;%s 爱吃鱼&quot; % self.name)</span><br><span class="line"></span><br><span class="line">tom = Cat()</span><br><span class="line">tom.name = &quot;Tom&quot;</span><br><span class="line">tom.eat()</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat()</span><br><span class="line">lazy_cat.name = &quot;大懒猫&quot;</span><br><span class="line">lazy_cat.eat()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/12/08/面向对象/面向对象基础语法/005_方法中的self.png" alt="猫类"></p>
+<ul>
+<li>在 类的外部，通过 变量名. 访问对象的 属性和方法</li>
+<li>在 类封装的方法中，通过 self. 访问对象的 属性和方法</li>
+</ul>
+<h2 id="4-初始化方法"><a href="#4-初始化方法" class="headerlink" title="4. 初始化方法"></a>4. 初始化方法</h2><h3 id="4-1-之前代码存在的问题-——-在类的外部给对象增加属性"><a href="#4-1-之前代码存在的问题-——-在类的外部给对象增加属性" class="headerlink" title="4.1 之前代码存在的问题 —— 在类的外部给对象增加属性"></a>4.1 之前代码存在的问题 —— 在类的外部给对象增加属性</h3><ul>
+<li><p>将案例代码进行调整，先调用方法 再设置属性，观察一下执行效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tom = Cat()</span><br><span class="line">tom.drink()</span><br><span class="line">tom.eat()</span><br><span class="line">tom.name = &quot;Tom&quot;</span><br><span class="line">print(tom)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>程序执行报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: &apos;Cat&apos; object has no attribute &apos;name&apos;</span><br><span class="line">属性错误：&apos;Cat&apos; 对象没有 &apos;name&apos; 属性</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>提示</strong></p>
+<ul>
+<li>在日常开发中，不推荐在 类的外部 给对象增加属性<ul>
+<li>如果在运行时，没有找到属性，程序会报错</li>
+</ul>
+</li>
+<li>对象应该包含有哪些属性，应该 封装在类的内部<h3 id="4-2-初始化方法"><a href="#4-2-初始化方法" class="headerlink" title="4.2 初始化方法"></a>4.2 初始化方法</h3></li>
+<li>当使用 类名() 创建对象时，会 自动 执行以下操作：<ol>
+<li>为对象在内存中 分配空间 —— 创建对象</li>
+<li>为对象的属性 设置初始值 —— 初始化方法(init)</li>
+</ol>
+</li>
+<li>这个 初始化方法 就是 <strong>init</strong> 方法，<strong>init</strong> 是对象的内置方法<blockquote>
+<p><strong>init</strong> 方法是 专门 用来定义一个类 具有哪些属性的方法！</p>
+</blockquote>
+</li>
+</ul>
+<p>在 Cat 中增加 <strong>init</strong> 方法，验证该方法在创建对象时会被自动调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line">    &quot;&quot;&quot;这是一个猫类&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        print(&quot;初始化方法&quot;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-3-在初始化方法内部定义属性"><a href="#4-3-在初始化方法内部定义属性" class="headerlink" title="4.3 在初始化方法内部定义属性"></a>4.3 在初始化方法内部定义属性</h3><ul>
+<li>在 <strong>init</strong> 方法内部使用 self.属性名 = 属性的初始值 就可以 定义属性</li>
+<li>定义属性之后，再使用 Cat 类创建的对象，都会拥有该属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line"></span><br><span class="line">        print(&quot;这是一个初始化方法&quot;)</span><br><span class="line">        </span><br><span class="line">        # 定义用 Cat 类创建的猫对象都有一个 name 的属性</span><br><span class="line">        self.name = &quot;Tom&quot;</span><br><span class="line"></span><br><span class="line">    def eat(self):</span><br><span class="line">        print(&quot;%s 爱吃鱼&quot; % self.name)</span><br><span class="line"></span><br><span class="line"># 使用类名()创建对象的时候，会自动调用初始化方法 __init__</span><br><span class="line">tom = Cat()</span><br><span class="line"></span><br><span class="line">tom.eat()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-4-改造初始化方法-——-初始化的同时设置初始值"><a href="#4-4-改造初始化方法-——-初始化的同时设置初始值" class="headerlink" title="4.4 改造初始化方法 —— 初始化的同时设置初始值"></a>4.4 改造初始化方法 —— 初始化的同时设置初始值</h3><ul>
+<li>在开发中，如果希望在 创建对象的同时，就设置对象的属性，可以对 <strong>init</strong> 方法进行 改造<ol>
+<li>把希望设置的属性值，定义成 <strong>init</strong> 方法的参数</li>
+<li>在方法内部使用 self.属性 = 形参 接收外部传递的参数</li>
+<li>在创建对象时，使用 类名(属性1, 属性2…) 调用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line"></span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        print(&quot;初始化方法 %s&quot; % name)</span><br><span class="line">        self.name = name</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">tom = Cat(&quot;Tom&quot;)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">lazy_cat = Cat(&quot;大懒猫&quot;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="5-内置方法和属性"><a href="#5-内置方法和属性" class="headerlink" title="5. 内置方法和属性"></a>5. 内置方法和属性</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">01</td>
+<td style="text-align:center"><strong>del</strong></td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">对象被从内存中销毁前，会被 自动 调用</td>
+</tr>
+<tr>
+<td style="text-align:center">02</td>
+<td style="text-align:center"><strong>str</strong></td>
+<td style="text-align:center">方法</td>
+<td style="text-align:center">返回对象的描述信息，print 函数输出使用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-1-del-方法（知道）"><a href="#5-1-del-方法（知道）" class="headerlink" title="5.1 del 方法（知道）"></a>5.1 <strong>del</strong> 方法（知道）</h3><ul>
+<li><p>在 Python 中</p>
+<ul>
+<li>当使用 类名() 创建对象时，为对象 分配完空间后，自动 调用 <strong>init</strong> 方法</li>
+<li>当一个 对象被从内存中销毁 前，会 自动 调用 <strong>del</strong> 方法</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li><strong>init</strong> 改造初始化方法，可以让创建对象更加灵活</li>
+<li><strong>del</strong> 如果希望在对象被销毁前，再做一些事情，可以考虑一下 <strong>del</strong> 方法</li>
+</ul>
+</li>
+<li><p>生命周期</p>
+<ul>
+<li>一个对象从调用 类名() 创建，生命周期开始</li>
+<li>一个对象的 <strong>del</strong> 方法一旦被调用，生命周期结束</li>
+<li>在对象的生命周期内，可以访问对象属性，或者让对象调用方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line"></span><br><span class="line">    def __init__(self, new_name):</span><br><span class="line"></span><br><span class="line">        self.name = new_name</span><br><span class="line"></span><br><span class="line">        print(&quot;%s 来了&quot; % self.name)</span><br><span class="line"></span><br><span class="line">    def __del__(self):</span><br><span class="line"></span><br><span class="line">        print(&quot;%s 去了&quot; % self.name)</span><br><span class="line"></span><br><span class="line"># tom 是一个全局变量</span><br><span class="line">tom = Cat(&quot;Tom&quot;)</span><br><span class="line">print(tom.name)</span><br><span class="line"></span><br><span class="line"># del 关键字可以删除一个对象</span><br><span class="line">del tom</span><br><span class="line"></span><br><span class="line">print(&quot;-&quot; * 50)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-str-方法"><a href="#5-2-str-方法" class="headerlink" title="5.2 str 方法"></a>5.2 <strong>str</strong> 方法</h3><ul>
+<li>在 Python 中，使用 print 输出 <strong>对象变量</strong>，默认情况下，会输出这个变量 <strong>引用的对象 是 由哪一个类创建的对象</strong>，以及 <strong>在内存中的地址（十六进制表示）</strong></li>
+<li>如果在开发中，希望使用 print 输出 对象变量 时，能够打印 自定义的内容，就可以利用 <strong>str</strong> 这个内置方法了<blockquote>
+<p>注意：<strong>str</strong> 方法必须返回一个字符串</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Cat:</span><br><span class="line">    def __init__(self, new_name):</span><br><span class="line">        self.name = new_name</span><br><span class="line">        print(&quot;%s 来了&quot; % self.name)</span><br><span class="line">        </span><br><span class="line">    def __del__(self):</span><br><span class="line">        print(&quot;%s 去了&quot; % self.name)</span><br><span class="line">        </span><br><span class="line">    def __str__(self):</span><br><span class="line">        return &quot;我是小猫：%s&quot; % self.name</span><br><span class="line">        </span><br><span class="line">tom = Cat(&quot;Tom&quot;)</span><br><span class="line"></span><br><span class="line">print(tom)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/08/面向对象/面向对象基础语法/" data-id="cjpgmo2r3003978aedlaldmm4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/08/hexo/使用github搭建hexo个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用github搭建hexo个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/08/面向对象/类和对象/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">17.类和对象</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/集成开发环境/">集成开发环境</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pycharm/">Pycharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python基础班课件/">黑马Python基础班课件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pycharm/" style="font-size: 10px;">Pycharm</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/黑马Python基础班课件/" style="font-size: 20px;">黑马Python基础班课件</a> <a href="/tags/黑马Python面向对象/" style="font-size: 16.67px;">黑马Python面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/eval函数/">29.eval函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/文件/">28.文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/模块和包/">27.模块和包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/异常/">26.异常</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/单例/">25.单例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Pybit<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

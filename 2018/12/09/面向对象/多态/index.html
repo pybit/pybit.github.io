@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>23.多态 | Pybit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="多态">
+<meta name="keywords" content="黑马Python面向对象,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="23.多态">
+<meta property="og:url" content="http://yoursite.com/2018/12/09/面向对象/多态/index.html">
+<meta property="og:site_name" content="Pybit">
+<meta property="og:description" content="多态">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/多态/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/12/09/面向对象/多态/2.png">
+<meta property="og:updated_time" content="2018-12-09T02:10:54.221Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="23.多态">
+<meta name="twitter:description" content="多态">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/09/面向对象/多态/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Pybit" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Pybit</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">热爱Python的程序员</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-面向对象/多态" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/09/面向对象/多态/" class="article-date">
+  <time datetime="2018-12-09T02:03:32.000Z" itemprop="datePublished">2018-12-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      23.多态
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>多态</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>多态<br><strong>面向对象三大特性</strong></li>
+</ul>
+<ol>
+<li><strong>封装</strong> 根据<strong> 职责</strong> 将 <strong>属性</strong> 和 <strong>方法 封装</strong> 到一个抽象的 <strong>类</strong> 中<ul>
+<li>定义类的准则</li>
+</ul>
+</li>
+<li><strong>继承 实现代码的重用</strong>，相同的代码不需要重复的编写<ul>
+<li>设计类的技巧</li>
+<li>子类针对自己特有的需求，编写特定的代码</li>
+</ul>
+</li>
+<li><p><strong>多态</strong> 不同的 <strong>子类对象</strong> 调用相同的 <strong>父类方法</strong>，产生不同的执行结果</p>
+<ul>
+<li><strong>多态</strong> 可以 <strong>增加代码的灵活度</strong></li>
+<li>以 <strong>继承</strong> 和 <strong>重写父类方法</strong> 为前提</li>
+<li>是调用方法的技巧，<strong>不会影响到类的内部设计</strong><br><img src="/2018/12/09/面向对象/多态/1.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="多态案例演练"><a href="#多态案例演练" class="headerlink" title="多态案例演练"></a>多态案例演练</h2><p><strong>需求</strong></p>
+<ol>
+<li>在 Dog 类中封装方法 game<ul>
+<li>普通狗只是简单的玩耍</li>
+</ul>
+</li>
+<li>定义 XiaoTianDog 继承自 Dog，并且重写 game 方法<ul>
+<li>哮天犬需要在天上玩耍</li>
+</ul>
+</li>
+<li>定义 Person 类，并且封装一个 <strong>和狗玩</strong> 的方法<ul>
+<li>在方法内部，直接让 <strong>狗对象</strong> 调用 game 方法<br><img src="/2018/12/09/面向对象/多态/2.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<p><strong>案例小结</strong></p>
+<ul>
+<li>Person 类中只需要让 <strong>狗对象</strong> 调用 game 方法，而不关心具体是 <strong>什么狗</strong><ul>
+<li>game 方法是在 Dog 父类中定义的</li>
+</ul>
+</li>
+<li>在程序执行时，传入不同的 <strong>狗对象</strong> 实参，就会产生不同的执行效果<blockquote>
+<p><strong>多态</strong> 更容易编写出出通用的代码，做出通用的编程，以适应需求的不断变化！</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Dog(object):</span><br><span class="line"></span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def game(self):</span><br><span class="line">        print(&quot;%s 蹦蹦跳跳的玩耍...&quot; % self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class XiaoTianDog(Dog):</span><br><span class="line"></span><br><span class="line">    def game(self):</span><br><span class="line">        print(&quot;%s 飞到天上去玩耍...&quot; % self.name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Person(object):</span><br><span class="line"></span><br><span class="line">    def __init__(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    def game_with_dog(self, dog):</span><br><span class="line"></span><br><span class="line">        print(&quot;%s 和 %s 快乐的玩耍...&quot; % (self.name, dog.name))</span><br><span class="line"></span><br><span class="line">        # 让狗玩耍</span><br><span class="line">        dog.game()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 1. 创建一个狗对象</span><br><span class="line"># wangcai = Dog(&quot;旺财&quot;)</span><br><span class="line">wangcai = XiaoTianDog(&quot;飞天旺财&quot;)</span><br><span class="line"></span><br><span class="line"># 2. 创建一个小明对象</span><br><span class="line">xiaoming = Person(&quot;小明&quot;)</span><br><span class="line"></span><br><span class="line"># 3. 让小明调用和狗玩的方法</span><br><span class="line">xiaoming.game_with_dog(wangcai)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/09/面向对象/多态/" data-id="cjpgmo2qc002y78ae4mwycxjt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/09/面向对象/类属性和类方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          24.类属性和类方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/09/面向对象/继承/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">22.继承</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/集成开发环境/">集成开发环境</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pycharm/">Pycharm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python基础班课件/">黑马Python基础班课件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑马Python面向对象/">黑马Python面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Pycharm/" style="font-size: 10px;">Pycharm</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/黑马Python基础班课件/" style="font-size: 20px;">黑马Python基础班课件</a> <a href="/tags/黑马Python面向对象/" style="font-size: 16.67px;">黑马Python面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/eval函数/">29.eval函数</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/文件/">28.文件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/模块和包/">27.模块和包</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/异常/">26.异常</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/09/面向对象/单例/">25.单例</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Pybit<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
